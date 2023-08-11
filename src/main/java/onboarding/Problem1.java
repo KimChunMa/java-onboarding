@@ -20,22 +20,22 @@ class Problem1 {
 		private static final int PAGES_SIZE = 2;
 
 		public boolean validate(List<Integer> pages) {
-			return checkLength(pages) && checkNull(pages) && checkPage(pages) && isContinues(pages)
+			return isCountPage(pages) && isExisPage(pages) && isCorrectRange(pages) && isContinues(pages)
 				&& isOddNumber(pages.get(0)) && isEvenNumber(pages.get(1));
 		}
 
 		//사이즈 체크
-		public boolean checkLength(List<Integer> pages) {
+		public boolean isCountPage(List<Integer> pages) {
 			return pages.size() == PAGES_SIZE;
 		}
 
 		//널값체크
-		public boolean checkNull(List<Integer> pages) {
+		public boolean isExisPage(List<Integer> pages) {
 			return pages.get(0) != null && pages.get(1) != null;
 		}
 
 		//1~400을 넘지않는가?
-		public boolean checkPage(List<Integer> pages) {
+		public boolean isCorrectRange(List<Integer> pages) {
 			int leftPage = pages.get(0);
 			int rightPage = pages.get(1);
 			return (leftPage >= START_PAGE && leftPage <= END_PAGE)
