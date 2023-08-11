@@ -8,8 +8,8 @@ class Problem1 {
 	static Result result = new Result();
 
 	public static int solution(List<Integer> pobi, List<Integer> crong) {
-		if (valid.validate(pobi) && valid.validate(crong)) {
-			return result.chooseWinner(calculation.getMaxPoint(pobi), calculation.getMaxPoint(crong));
+		if( valid.validate(pobi) && valid.validate(crong) ){
+			return result.chooseWinner( calculation.getMaxPoint(pobi),calculation.getMaxPoint(crong) );
 		}
 		return Result.EXCEPTION;
 	}
@@ -19,23 +19,23 @@ class Problem1 {
 		private static final int END_PAGE = 400;
 		private static final int PAGES_SIZE = 2;
 
-		public boolean validate(List<Integer> pages) {
+		public boolean validate(List<Integer> pages){
 			return checkLength(pages) && checkNull(pages) && checkPage(pages) && isContinues(pages)
 				&& isOddNumber(pages.get(0)) && isEvenNumber(pages.get(1));
 		}
 
 		//사이즈 체크
-		public boolean checkLength(List<Integer> pages) {
-			return pages.size() == PAGES_SIZE;
+		public boolean checkLength(List<Integer> pages){
+			return pages.size()==PAGES_SIZE;
 		}
 
 		//널값체크
-		public boolean checkNull(List<Integer> pages) {
-			return pages.get(0) != null && pages.get(1) != null;
+		public boolean checkNull(List<Integer> pages){
+			return pages.get(0)!=null && pages.get(1)!=null;
 		}
 
 		//1~400을 넘지않는가?
-		public boolean checkPage(List<Integer> pages) {
+		public boolean checkPage(List<Integer> pages){
 			int leftPage = pages.get(0);
 			int rightPage = pages.get(1);
 			return (leftPage >= START_PAGE && leftPage <= END_PAGE)
@@ -66,16 +66,16 @@ class Problem1 {
 			return Math.max(plusMaxPoint, multipleMaxPoint);
 		}
 
-		public int plus(int page) {
+		public int plus(int page){
 			int result = 0;
-			while (page != 0) {
-				result += page % 10;
-				page /= 10;
+			while(page != 0){
+				result += page%10;
+				page/=10;
 			}
 			return result;
 		}
 
-		public int multiple(int page) {
+		public int multiple(int page){
 			int result = 1;
 			while (page != 0) {
 				result *= page % 10;
@@ -88,7 +88,7 @@ class Problem1 {
 	static class Result {
 
 		private static final int EXCEPTION = -1;
-		private static final int DRAW = 0;
+		private static final int DRAW = 0 ;
 
 		public int chooseWinner(int pobiPoint, int crongPoint) {
 			if (pobiPoint > crongPoint) {
