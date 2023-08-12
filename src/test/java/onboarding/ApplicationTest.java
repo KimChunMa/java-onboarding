@@ -41,6 +41,7 @@ class ApplicationTest {
         void case1() {
             String cryptogram = "browoanoommnaon";
             String result = "brown";
+
             assertThat(Problem2.solution(cryptogram)).isEqualTo(result);
         }
 
