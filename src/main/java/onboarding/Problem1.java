@@ -20,7 +20,7 @@ class Problem1 {
 		private static final int PAGES_SIZE = 2;
 
 		public boolean validate(List<Integer> pages) {
-			return isCountPage(pages) && isExisPage(pages) && isCorrectRange(pages) && isContinues(pages)
+			return isCountPage(pages) && isExistPage(pages) && isCorrectRange(pages) && isContinues(pages)
 				&& isOddNumber(pages.get(0)) && isEvenNumber(pages.get(1));
 		}
 
@@ -30,7 +30,7 @@ class Problem1 {
 		}
 
 		//널값체크
-		public boolean isExisPage(List<Integer> pages) {
+		public boolean isExistPage(List<Integer> pages) {
 			return pages.get(0) != null && pages.get(1) != null;
 		}
 
@@ -59,7 +59,6 @@ class Problem1 {
 	}
 
 	static class Calculation {
-
 		public int getMaxPoint(List<Integer> pages) {
 			int plusMaxPoint = Math.max(plus(pages.get(0)), plus(pages.get(1)));
 			int multipleMaxPoint = Math.max(multiple(pages.get(0)), multiple(pages.get(1)));
@@ -86,7 +85,6 @@ class Problem1 {
 	}
 
 	static class Result {
-
 		private static final int EXCEPTION = -1;
 		private static final int DRAW = 0;
 
