@@ -8,7 +8,7 @@ public class Problem2 {
 	static Code code = new Code();
 
 	public static String solution(String cryptogram) {
-		if(valid.validate(cryptogram)){
+		if (valid.validate(cryptogram)) {
 			return code.decode(cryptogram);
 		}
 		return null;
@@ -17,7 +17,7 @@ public class Problem2 {
 	static class Valid {
 		public boolean validate(String cryptogram) {
 			return isExistCryptogram(cryptogram) && isCorrectRange(cryptogram) &&
-				   isLowerCase(cryptogram);
+				isLowerCase(cryptogram);
 		}
 
 		public boolean isExistCryptogram(String cryptogram) {
@@ -33,16 +33,16 @@ public class Problem2 {
 		}
 	}
 
-	static class Code{
-		public String decode(String cryptogram){
+	static class Code {
+		public String decode(String cryptogram) {
 			Stack<Character> stack = new Stack<>();
 
 			int index = 0;
-			while(index < cryptogram.length()){
-				if(stack.isEmpty() || stack.peek() != cryptogram.charAt(index)){
+			while (index < cryptogram.length()) {
+				if (stack.isEmpty() || stack.peek() != cryptogram.charAt(index)) {
 					stack.push(cryptogram.charAt(index));
 					index++;
-				}else if(stack.peek() == cryptogram.charAt(index) ){
+				} else if (stack.peek() == cryptogram.charAt(index)) {
 					stack.pop();
 					index++;
 				}
