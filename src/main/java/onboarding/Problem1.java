@@ -24,17 +24,14 @@ class Problem1 {
 				&& isOddNumber(pages.get(0)) && isEvenNumber(pages.get(1));
 		}
 
-		//사이즈 체크
 		public boolean isCountPage(List<Integer> pages) {
 			return pages.size() == PAGES_SIZE;
 		}
 
-		//널값체크
 		public boolean isExistPage(List<Integer> pages) {
 			return pages.get(0) != null && pages.get(1) != null;
 		}
 
-		//1~400을 넘지않는가?
 		public boolean isCorrectRange(List<Integer> pages) {
 			int leftPage = pages.get(0);
 			int rightPage = pages.get(1);
@@ -42,17 +39,14 @@ class Problem1 {
 				&& (rightPage >= START_PAGE && rightPage <= END_PAGE);
 		}
 
-		//홀수인가?
 		private boolean isOddNumber(int page) {
 			return page % 2 == 1;
 		}
 
-		//짝수인가?
 		private boolean isEvenNumber(int page) {
 			return page % 2 == 0;
 		}
 
-		//올바른페이지인가?
 		private boolean isContinues(List<Integer> pages) {
 			return pages.get(1) - 1 == pages.get(0);
 		}

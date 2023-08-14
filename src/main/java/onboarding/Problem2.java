@@ -15,6 +15,9 @@ public class Problem2 {
 	}
 
 	static class Valid {
+		private static final int FIRST_PAGE = 1;
+		private static final int LAST_PAGE = 1;
+
 		public boolean validate(String cryptogram) {
 			return isExistCryptogram(cryptogram) && isCorrectRange(cryptogram) &&
 				isLowerCase(cryptogram);
@@ -25,7 +28,7 @@ public class Problem2 {
 		}
 
 		public boolean isCorrectRange(String cryptogram) {
-			return cryptogram.length() >= 1 && cryptogram.length() <= 1000;
+			return cryptogram.length() >= FIRST_PAGE && cryptogram.length() <= LAST_PAGE;
 		}
 
 		public boolean isLowerCase(String cryptogram) {
