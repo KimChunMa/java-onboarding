@@ -38,38 +38,37 @@ public class Problem6 {
 				subStringNickname(email, nickname);
 			});
 			findDuplicateEmail();
-
 			return duplicateEmail;
 		}
 
 		public void subStringNickname(String email, String nickName) {
 			for (int i = 0; i <= nickName.length() - CONSECUTIVE_NICKNAME; i++) {
-				String substringNickName = nickName.substring(i, i+CONSECUTIVE_NICKNAME);
+				String substringNickName = nickName.substring(i, i + CONSECUTIVE_NICKNAME);
 				findKey(substringNickName);
 				putEmail(email, nickName, substringNickName);
 			}
 		}
 
-		public void findKey(String substringNickName){
-			if(!duplicateEmailMap.containsKey(substringNickName)){
+		public void findKey(String substringNickName) {
+			if (!duplicateEmailMap.containsKey(substringNickName)) {
 				duplicateEmailMap.put(substringNickName, new ArrayList<>());
 			}
 		}
 
 		public void putEmail(String email, String nickName, String substringNickName) {
-			if(nickName.indexOf(substringNickName)>=0){
+			if (nickName.indexOf(substringNickName) >= 0) {
 				duplicateEmailMap.get(substringNickName).add(email);
 			}
 		}
 
-		public void findDuplicateEmail(){
-			duplicateEmailMap.forEach((nickname,emailList)->{
+		public void findDuplicateEmail() {
+			duplicateEmailMap.forEach((nickname, emailList) -> {
 				findListSize(emailList);
 			});
 		}
 
-		public void findListSize(List<String> emailList){
-			if(emailList.size()>=2){
+		public void findListSize(List<String> emailList) {
+			if (emailList.size() >= 2) {
 				duplicateEmail.addAll(emailList);
 			}
 		}
