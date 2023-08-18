@@ -16,7 +16,7 @@ public class Problem2 {
 
 	static class Valid {
 		private static final int FIRST_PAGE = 1;
-		private static final int LAST_PAGE = 1;
+		private static final int LAST_PAGE = 1000;
 
 		public boolean validate(String cryptogram) {
 			return isExistCryptogram(cryptogram) && isCorrectRange(cryptogram) &&
